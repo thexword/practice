@@ -21,6 +21,9 @@ int main(int argc, char const *argv[])
     printf("LONG_MAX: %ld\n", LONG_MAX);
     printf("LONG_MIN: %ld\n", LONG_MIN);
     printf("ULONG_MAX: %lu\n", ULONG_MAX);
+
+    int x=020;
+    printf("%d, %o, %x\n", x, x, x);
     
     return 0;
 }
