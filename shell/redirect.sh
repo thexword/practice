@@ -40,3 +40,26 @@ echo $line
 echo "this is a test line" >&7
 echo "view inoutfile:"
 cat inoutfile
+
+exec 3>&-
+exec 4>&-
+exec 5>&-
+exec 6>&-
+exec 7>&-
+
+
+echo "test if the file descriptor 3 is closed" >&3
+
+exec 3>testfile
+
+echo "this should be in testfile" >&3
+echo "testfile: "
+cat testfile
+
+exec 3>&-
+
+exec 3>testfile
+
+echo "this should overwrite the data in testfile" >&3
+echo "testfile: "
+cat testfile
